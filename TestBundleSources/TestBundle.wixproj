@@ -1,0 +1,24 @@
+<Project Sdk="WixToolset.Sdk/5.0.0-rc.2">
+  <PropertyGroup>
+    <OutputType>Bundle</OutputType>
+    <Platforms>x64</Platforms>
+    <Deterministic>True</Deterministic>
+    <SuppressSpecificWarnings>1161</SuppressSpecificWarnings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>Debug;$(DefineConstants)</DefineConstants>
+    <SuppressAllWarnings>False</SuppressAllWarnings>
+    <Pedantic>True</Pedantic>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <VerboseOutput>True</VerboseOutput>
+    <LeaveTemporaryFiles>True</LeaveTemporaryFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <SuppressPdbOutput>True</SuppressPdbOutput>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.BootstrapperApplications.wixext" Version="5.0.0-rc.2" />
+    <PackageReference Include="WixToolset.NetFx.wixext" Version="5.0.0-rc.2" />
+  </ItemGroup>
+</Project>

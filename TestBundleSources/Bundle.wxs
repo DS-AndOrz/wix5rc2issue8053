@@ -1,0 +1,30 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" 
+     xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+
+  <Bundle Name="Test Bundle 1.0.0.0"
+          Version="1.0.0.0"
+          Manufacturer="DS-AndOrz"
+          IconSourceFile="BlueBitsTool.ico"
+          UpgradeCode="{F4C60FC8-F3E9-4EE4-BBB4-8AB81CE6546A}"
+          DisableModify="yes"
+          Condition="VersionNT64 &gt;= v10.0">
+
+    <BootstrapperApplication>
+      <bal:WixStandardBootstrapperApplication  LicenseUrl="" SuppressOptionsUI="yes" SuppressRepair="yes" Theme="hyperlinkLicense" />
+    </BootstrapperApplication>
+
+    <Chain>
+      <PackageGroupRef Id="NetFx48RedistAsPrereq" />
+      <PackageGroupRef Id="CodemeterRuntime64Package" />
+    </Chain>
+  </Bundle>
+
+  <Fragment>
+    <PackageGroup Id="CodemeterRuntime64Package">
+      <MsiPackage SourceFile="RedistPackages\CodeMeterRuntime64.msi"
+                  Compressed="default"
+                  ForcePerMachine="yes"/>
+    </PackageGroup>
+  </Fragment>
+
+</Wix>
